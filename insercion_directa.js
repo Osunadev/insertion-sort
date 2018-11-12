@@ -1,8 +1,13 @@
 function showArrayLeft() {
 	var arrayNum = getNumberArray();
 
-	if (array.length < 4) {
+	if(arrayNum === -1) {
+		alert("Introduzca un arreglo");
+		document.getElementById("sortarray").value = '';
+	}
+	else if (arrayNum.length < 4) {
 		alert('Introduzca un poco mas de elementos!');
+		document.getElementById("sortarray").value = '';
 	} else {
 		document.getElementById("sortarray").value = insertionSortLeft(arrayNum);
 	}
@@ -12,8 +17,13 @@ function showArrayLeft() {
 function showArrayRight() {
 	var arrayNum = getNumberArray();
 
-	if (array.length < 4) {
+	if(arrayNum === -1) {
+		alert('Introduzca un arreglo');
+		document.getElementById("sortarray").value = '';
+	}
+	else if (arrayNum.length < 4) {
 		alert('Introduzca un poco mas de elementos!');
+		document.getElementById("sortarray").value = '';
 	} else {
 		document.getElementById("sortarray").value = insertionSortRight(arrayNum);
 	}
@@ -22,6 +32,11 @@ function showArrayRight() {
 
 function getNumberArray() {
 	var stringArray = document.getElementById("array").value;  // obtenemos el arreglo separado por comas
+
+	if (stringArray === '') {
+		return -1;
+	}
+
 	var array = stringArray.split(','); // obteniendo array con el separador de la coma pero los numeros siguen siendo strings
 
 	// creando un nuevo array para tener la representacion numerica del arreglo
